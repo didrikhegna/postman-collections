@@ -21,9 +21,30 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "function Hello() {",
-                  "    ",
-                  "}"
+                  "export function developerAuthenticate(fb_token, invite_token){",
+                  "  const data = {",
+                  "    access_token: fb_token,",
+                  "    invite_token: invite_token",
+                  "  }",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
+                  "        method: 'GET',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-identifier': '::identifier::'",
+                  "        },",
+                  "        body: JSON.stringify(data)",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}",
+                  ""
                 ]
               }
             }
