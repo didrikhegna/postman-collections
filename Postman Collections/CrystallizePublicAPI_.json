@@ -223,7 +223,7 @@
                   "export function deleteProductType(product_id){",
                   "  return new Promise(function(resolve, reject){",
                   "      fetch('https:://api.crystallize.digital/v2/products/producttypes/:' + product_id, {",
-                  "        method: 'POST',",
+                  "        method: 'DELETE',",
                   "        headers: {",
                   "          'Content-Type': 'application/json',",
                   "          'X-Crystallize-Tenant': '{{tenant}}',",
