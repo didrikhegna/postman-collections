@@ -56,7 +56,7 @@
               },
               {
                 "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
+                "value": "{{your_tenant_identifier}}",
                 "description": "Which tenant you want to send your requests to"
               }
             ],
