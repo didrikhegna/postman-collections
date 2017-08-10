@@ -250,11 +250,18 @@
                 "key": "X-Crystallize-Tenant",
                 "value": "Your_Tenant_Identifier",
                 "description": "Which tenant you want to send your requests to"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": ""
               }
             ],
             "body": {
-              "mode": "raw",
-              "raw": ""
+              "mode": "urlencoded",
+              "urlencoded": [
+                ""
+              ]
             },
             "description": ""
           },
