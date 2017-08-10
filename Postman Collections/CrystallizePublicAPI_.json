@@ -159,14 +159,15 @@
           "name": "Remove Type",
           "request": {
             "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/producttypes/:id",
-              "protocol": "{{protocol}}",
+              "raw": "https:://api.crystallize.digital/v2/products/producttypes/:id",
               "auth": {},
               "host": [
-                "{{url}}"
+                "https"
               ],
-              "port": "{{port}}",
               "path": [
+                "::",
+                "",
+                "api.crystallize.digital",
                 "v2",
                 "products",
                 "producttypes",
