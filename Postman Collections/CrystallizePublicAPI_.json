@@ -68,6 +68,37 @@
         {
           "_postman_id": "b35e75c0-66a1-c9e9-6121-66246ee7b5bd",
           "name": "Create Type",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "export function createProductType(body){",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
+                  "        method: 'POST',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-Tenant': '{{tenant}}',",
+                  "          'Authorization': 'Bearer {{last_valid_token}}'",
+                  "        },",
+                  "        body : JSON.stringify(body)",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}",
+                  ""
+                ]
+              }
+            }
+          ],
           "request": {
             "url": "https:://api.crystallize.digital/v2/products/producttypes",
             "method": "POST",
