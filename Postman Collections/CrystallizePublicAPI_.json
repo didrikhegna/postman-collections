@@ -160,17 +160,17 @@
               {
                 "key": "Content-Type",
                 "value": "application/json",
-                "description": "application/json"
+                "description": ""
               },
               {
                 "key": "Authorization",
                 "value": "Bearer {{last_valid_token}}",
-                "description": "Your last valid authorization token"
+                "description": ""
               },
               {
                 "key": "X-Crystallize-Tenant",
                 "value": "Your_Tenant_Identifier",
-                "description": "Which tenant you want to send your requests to"
+                "description": ""
               }
             ],
             "body": {
