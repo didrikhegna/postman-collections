@@ -52,7 +52,7 @@
               {
                 "key": "Authorization",
                 "value": "Bearer {{last_valid_token}}",
-                "description": "Your authorization token"
+                "description": "Your last valid authorization token"
               },
               {
                 "key": "X-Crystallize-Tenant",
