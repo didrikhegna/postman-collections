@@ -214,6 +214,35 @@
         {
           "_postman_id": "d794c762-875d-d0f3-df00-2567d4417da5",
           "name": "Remove Type",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "export function deleteProductType(product_id){",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes/:' + product_id, {",
+                  "        method: 'POST',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-Tenant': '{{tenant}}',",
+                  "          'Authorization': 'Bearer {{last_valid_token}}'",
+                  "        }",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}"
+                ]
+              }
+            }
+          ],
           "request": {
             "url": {
               "raw": "https:://api.crystallize.digital/v2/products/producttypes/:id",
