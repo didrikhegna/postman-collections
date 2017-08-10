@@ -136,9 +136,9 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "export function updateProductType(body){",
+                  "export function updateProductType(body, product_id){",
                   "  return new Promise(function(resolve, reject){",
-                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes/' + product_id, {",
                   "        method: 'PUT',",
                   "        headers: {",
                   "          'Content-Type': 'application/json',",
