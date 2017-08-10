@@ -130,6 +130,36 @@
         {
           "_postman_id": "c1afc158-e54b-a9be-a1ad-5974c99949d2",
           "name": "Update Type",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "export function updateProductType(body){",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
+                  "        method: 'PUT',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-Tenant': '{{tenant}}',",
+                  "          'Authorization': 'Bearer {{last_valid_token}}'",
+                  "        },",
+                  "        body : JSON.stringify(body)",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}"
+                ]
+              }
+            }
+          ],
           "request": {
             "url": {
               "raw": "https:://api.crystallize.digital/v2/products/producttypes/:id",
