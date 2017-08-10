@@ -73,7 +73,7 @@
           "_postman_id": "b35e75c0-66a1-c9e9-6121-66246ee7b5bd",
           "name": "Create Type",
           "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/producttypes",
+            "url": "https:://api.crystallize.digital/v2/products/producttypes",
             "method": "POST",
             "header": [
               {
