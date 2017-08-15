@@ -8,297 +8,6 @@
   },
   "item": [
     {
-      "_postman_id": "810696de-7b08-6ba7-678c-7357bff94a50",
-      "name": "Content Types",
-      "description": "Endpoints managing the Content Types",
-      "item": [
-        {
-          "_postman_id": "ecff75b3-57ef-3840-3993-34da88eb750d",
-          "name": "List Types",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "export function fetchListTypes(){",
-                  "  return new Promise(function(resolve, reject){",
-                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
-                  "        method: 'GET',",
-                  "        headers: {",
-                  "          'Content-Type': 'application/json',",
-                  "          'X-Crystallize-Tenant': '{{tenant}}',",
-                  "          'Authorization': 'Bearer {{last_valid_token}}'",
-                  "        }",
-                  "      })",
-                  "      .then(response => response.json())",
-                  "      .then((responseData) => {",
-                  "          resolve( responseData );",
-                  "        })",
-                  "      .catch((err) => {",
-                  "         reject(err);",
-                  "      });",
-                  "    })",
-                  "}",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https:://api.crystallize.digital/v2/products/producttypes",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": "Your last valid authorization token"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{your_tenant_identifier}}",
-                "description": "Which tenant you want to send your requests to"
-              }
-            ],
-            "body": {},
-            "description": "Returns all created content types\non success status is set to 200\non error status set to 500 including error message"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "b35e75c0-66a1-c9e9-6121-66246ee7b5bd",
-          "name": "Create Type",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "export function createProductType(body){",
-                  "  return new Promise(function(resolve, reject){",
-                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
-                  "        method: 'POST',",
-                  "        headers: {",
-                  "          'Content-Type': 'application/json',",
-                  "          'X-Crystallize-Tenant': '{{tenant}}',",
-                  "          'Authorization': 'Bearer {{last_valid_token}}'",
-                  "        },",
-                  "        body : JSON.stringify(body)",
-                  "      })",
-                  "      .then(response => response.json())",
-                  "      .then((responseData) => {",
-                  "          resolve( responseData );",
-                  "        })",
-                  "      .catch((err) => {",
-                  "         reject(err);",
-                  "      });",
-                  "    })",
-                  "}",
-                  ""
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "https:://api.crystallize.digital/v2/products/producttypes",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": "Your last valid authorization token"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": "Which tenant you want to send your requests to"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"bunad\",\n  \"fields\": [\n    {\n       \"name\": \"Description\",\n      \"field_type\": \"string\",\n      \"is_required\":0\n    },\n  {\n       \"name\": \"Lead\",\n      \"field_type\": \"text\",\n      \"is_required\":0\n    },\n  {\n       \"name\": \"Body\",\n      \"field_type\": \"string\",\n      \"is_required\":0\n    }\n  ]\n}\n"
-            },
-            "description": "Generating a new Content type\non success status is set to 200\non error status set to 500 including error message"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "c1afc158-e54b-a9be-a1ad-5974c99949d2",
-          "name": "Update Type",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "export function updateProductType(body, product_id){",
-                  "  return new Promise(function(resolve, reject){",
-                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes/' + product_id, {",
-                  "        method: 'PUT',",
-                  "        headers: {",
-                  "          'Content-Type': 'application/json',",
-                  "          'X-Crystallize-Tenant': '{{tenant}}',",
-                  "          'Authorization': 'Bearer {{last_valid_token}}'",
-                  "        },",
-                  "        body : JSON.stringify(body)",
-                  "      })",
-                  "      .then(response => response.json())",
-                  "      .then((responseData) => {",
-                  "          resolve( responseData );",
-                  "        })",
-                  "      .catch((err) => {",
-                  "         reject(err);",
-                  "      });",
-                  "    })",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": {
-              "raw": "https:://api.crystallize.digital/v2/products/producttypes/:id",
-              "auth": {},
-              "host": [
-                "https"
-              ],
-              "path": [
-                "::",
-                "",
-                "api.crystallize.digital",
-                "v2",
-                "products",
-                "producttypes",
-                ":id"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "id",
-                  "value": "40"
-                }
-              ]
-            },
-            "method": "PUT",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": "Your last valid authorization token"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": "Which tenant you want to send your requests to"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"name\": \"test_name\"\n}"
-            },
-            "description": "Update a Content type\non success status is set to 200\non error status set to 500 including error message"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "d794c762-875d-d0f3-df00-2567d4417da5",
-          "name": "Remove Type",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "export function deleteProductType(product_id){",
-                  "  return new Promise(function(resolve, reject){",
-                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes/:' + product_id, {",
-                  "        method: 'DELETE',",
-                  "        headers: {",
-                  "          'Content-Type': 'application/json',",
-                  "          'X-Crystallize-Tenant': '{{tenant}}',",
-                  "          'Authorization': 'Bearer {{last_valid_token}}'",
-                  "        }",
-                  "      })",
-                  "      .then(response => response.json())",
-                  "      .then((responseData) => {",
-                  "          resolve( responseData );",
-                  "        })",
-                  "      .catch((err) => {",
-                  "         reject(err);",
-                  "      });",
-                  "    })",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": {
-              "raw": "https:://api.crystallize.digital/v2/products/producttypes/:id",
-              "auth": {},
-              "host": [
-                "https"
-              ],
-              "path": [
-                "::",
-                "",
-                "api.crystallize.digital",
-                "v2",
-                "products",
-                "producttypes",
-                ":id"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "id",
-                  "value": "40"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": "Your last valid authorization token"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": "Which tenant you want to send your requests to"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/x-www-form-urlencoded",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "urlencoded",
-              "urlencoded": [
-                ""
-              ]
-            },
-            "description": ""
-          },
-          "response": []
-        }
-      ]
-    },
-    {
       "_postman_id": "6ea63968-d3d2-d044-9d2b-807c86a1db1d",
       "name": "Customer",
       "description": "These endpoints cover the customer specific calls. ",
@@ -2658,6 +2367,327 @@
             ],
             "body": {},
             "description": "Get Magic"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "810696de-7b08-6ba7-678c-7357bff94a50",
+      "name": "Content Types",
+      "description": "Endpoints managing the Content Types",
+      "item": [
+        {
+          "_postman_id": "ecff75b3-57ef-3840-3993-34da88eb750d",
+          "name": "List Types",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "export function fetchListTypes(){",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
+                  "        method: 'GET',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-Tenant': '{{tenant}}',",
+                  "          'Authorization': 'Bearer {{last_valid_token}}'",
+                  "        }",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https:://api.crystallize.digital/v2/products/producttypes",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": "Your last valid authorization token"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{your_tenant_identifier}}",
+                "description": "Which tenant you want to send your requests to"
+              }
+            ],
+            "body": {},
+            "description": "Returns all created content types\non success status is set to 200\non error status set to 500 including error message"
+          },
+          "response": [
+            {
+              "id": "657d368e-8b14-cb1f-b5fb-1cadc1bdeb4b",
+              "name": "response",
+              "originalRequest": {
+                "url": "https:://api.crystallize.digital/v2/products/producttypes",
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{last_valid_token}}",
+                    "description": "Your last valid authorization token"
+                  },
+                  {
+                    "key": "X-Crystallize-Tenant",
+                    "value": "{{your_tenant_identifier}}",
+                    "description": "Which tenant you want to send your requests to"
+                  }
+                ],
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "",
+              "_postman_previewtype": "parsed",
+              "header": [],
+              "cookie": [],
+              "responseTime": "0",
+              "body": "{\n\tresponse: 'this is a response'\n}"
+            }
+          ]
+        },
+        {
+          "_postman_id": "b35e75c0-66a1-c9e9-6121-66246ee7b5bd",
+          "name": "Create Type",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "export function createProductType(body){",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes', {",
+                  "        method: 'POST',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-Tenant': '{{tenant}}',",
+                  "          'Authorization': 'Bearer {{last_valid_token}}'",
+                  "        },",
+                  "        body : JSON.stringify(body)",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}",
+                  ""
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "https:://api.crystallize.digital/v2/products/producttypes",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": "Your last valid authorization token"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": "Which tenant you want to send your requests to"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"bunad\",\n  \"fields\": [\n    {\n       \"name\": \"Description\",\n      \"field_type\": \"string\",\n      \"is_required\":0\n    },\n  {\n       \"name\": \"Lead\",\n      \"field_type\": \"text\",\n      \"is_required\":0\n    },\n  {\n       \"name\": \"Body\",\n      \"field_type\": \"string\",\n      \"is_required\":0\n    }\n  ]\n}\n"
+            },
+            "description": "Generating a new Content type\non success status is set to 200\non error status set to 500 including error message"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "c1afc158-e54b-a9be-a1ad-5974c99949d2",
+          "name": "Update Type",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "export function updateProductType(body, product_id){",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes/' + product_id, {",
+                  "        method: 'PUT',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-Tenant': '{{tenant}}',",
+                  "          'Authorization': 'Bearer {{last_valid_token}}'",
+                  "        },",
+                  "        body : JSON.stringify(body)",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": {
+              "raw": "https:://api.crystallize.digital/v2/products/producttypes/:id",
+              "auth": {},
+              "host": [
+                "https"
+              ],
+              "path": [
+                "::",
+                "",
+                "api.crystallize.digital",
+                "v2",
+                "products",
+                "producttypes",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "id",
+                  "value": "40"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": "Your last valid authorization token"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": "Which tenant you want to send your requests to"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"test_name\"\n}"
+            },
+            "description": "Update a Content type\non success status is set to 200\non error status set to 500 including error message"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "d794c762-875d-d0f3-df00-2567d4417da5",
+          "name": "Remove Type",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "export function deleteProductType(product_id){",
+                  "  return new Promise(function(resolve, reject){",
+                  "      fetch('https:://api.crystallize.digital/v2/products/producttypes/:' + product_id, {",
+                  "        method: 'DELETE',",
+                  "        headers: {",
+                  "          'Content-Type': 'application/json',",
+                  "          'X-Crystallize-Tenant': '{{tenant}}',",
+                  "          'Authorization': 'Bearer {{last_valid_token}}'",
+                  "        }",
+                  "      })",
+                  "      .then(response => response.json())",
+                  "      .then((responseData) => {",
+                  "          resolve( responseData );",
+                  "        })",
+                  "      .catch((err) => {",
+                  "         reject(err);",
+                  "      });",
+                  "    })",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": {
+              "raw": "https:://api.crystallize.digital/v2/products/producttypes/:id",
+              "auth": {},
+              "host": [
+                "https"
+              ],
+              "path": [
+                "::",
+                "",
+                "api.crystallize.digital",
+                "v2",
+                "products",
+                "producttypes",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "id",
+                  "value": "40"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": "Your last valid authorization token"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": "Which tenant you want to send your requests to"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                ""
+              ]
+            },
+            "description": ""
           },
           "response": []
         }
