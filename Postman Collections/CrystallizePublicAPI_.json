@@ -9,8 +9,8 @@
   "item": [
     {
       "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
-      "name": "Snowflakes",
-      "description": "Simple magic",
+      "name": "Insight",
+      "description": "Statistics and insight endpoints are gathered here.",
       "item": [
         {
           "_postman_id": "b1ce3e84-6417-e38c-22b7-97412a81eb6c",
