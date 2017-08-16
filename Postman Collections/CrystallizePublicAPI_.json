@@ -1074,6 +1074,264 @@
       ]
     },
     {
+      "_postman_id": "a70f5575-ca98-bd37-9fa2-dbbbf9f1ac90",
+      "name": "Subscription",
+      "description": "Methods for managing subscriptions.",
+      "item": [
+        {
+          "_postman_id": "d0c58a0d-2553-671b-385b-f5ca401edf3b",
+          "name": "Create subscription type.",
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"test_name\",\n\t\"period_number\": 1,\n\t\"period_unit\": \"Year\"\n}"
+            },
+            "description": "Creates a new subscription type"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8310daf7-35c5-9909-3fe0-1c4eda403758",
+          "name": "Fetch subscriptions",
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Fetches all subscriptions."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "c8c45f79-f6d0-a744-c660-b51ddded0d29",
+          "name": "Fetch subscriptions CSV",
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/csv",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Fetches all subscriptions as CSV file"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "be92840d-4650-fccc-1998-5fb8501eeba7",
+          "name": "Delete  subscriptions",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/:id",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "subscriptions",
+                ":id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "id",
+                  "value": "5"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Deleted given subscription."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e29e2587-2cc9-efa2-9302-39af40ac6bc8",
+          "name": "Assign subscription to product",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/:id/assignproduct/:product_id",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "subscriptions",
+                ":id",
+                "assignproduct",
+                ":product_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "id",
+                  "value": "15"
+                },
+                {
+                  "description": "",
+                  "key": "product_id",
+                  "value": "25"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Assigns a subscription to a product."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "7f1129fb-e0a8-af04-ef3b-8a538ae22f09",
+          "name": "Fetch product's subscriptions",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/assignedproduct/:product_id",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "subscriptions",
+                "assignedproduct",
+                ":product_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "product_id",
+                  "value": "25"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Fetches subscription types that are assigned to the given product id."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "608ae4e5-1cce-64ed-0a4e-3a07c3b9b470",
+          "name": "Statistics",
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/statistics",
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "description": "Fetches all subscription statistics."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
       "name": "Insight",
       "description": "Statistics and insight endpoints are gathered here.",
@@ -1447,264 +1705,6 @@
             ],
             "body": {},
             "description": ""
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "a70f5575-ca98-bd37-9fa2-dbbbf9f1ac90",
-      "name": "Subscription",
-      "description": "Methods for managing subscriptions.",
-      "item": [
-        {
-          "_postman_id": "d0c58a0d-2553-671b-385b-f5ca401edf3b",
-          "name": "Create subscription type.",
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"name\": \"test_name\",\n\t\"period_number\": 1,\n\t\"period_unit\": \"Year\"\n}"
-            },
-            "description": "Creates a new subscription type"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "8310daf7-35c5-9909-3fe0-1c4eda403758",
-          "name": "Fetch subscriptions",
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/",
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Fetches all subscriptions."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "c8c45f79-f6d0-a744-c660-b51ddded0d29",
-          "name": "Fetch subscriptions CSV",
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/csv",
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Fetches all subscriptions as CSV file"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "be92840d-4650-fccc-1998-5fb8501eeba7",
-          "name": "Delete  subscriptions",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/:id",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "subscriptions",
-                ":id"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "id",
-                  "value": "5"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Deleted given subscription."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "e29e2587-2cc9-efa2-9302-39af40ac6bc8",
-          "name": "Assign subscription to product",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/:id/assignproduct/:product_id",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "subscriptions",
-                ":id",
-                "assignproduct",
-                ":product_id"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "id",
-                  "value": "15"
-                },
-                {
-                  "description": "",
-                  "key": "product_id",
-                  "value": "25"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": "Assigns a subscription to a product."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "7f1129fb-e0a8-af04-ef3b-8a538ae22f09",
-          "name": "Fetch product's subscriptions",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/assignedproduct/:product_id",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "subscriptions",
-                "assignedproduct",
-                ":product_id"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "product_id",
-                  "value": "25"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Fetches subscription types that are assigned to the given product id."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "608ae4e5-1cce-64ed-0a4e-3a07c3b9b470",
-          "name": "Statistics",
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/subscriptions/statistics",
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "description": "Fetches all subscription statistics."
           },
           "response": []
         }
