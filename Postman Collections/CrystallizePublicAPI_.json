@@ -8,6 +8,63 @@
   },
   "item": [
     {
+      "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
+      "name": "Snowflakes",
+      "description": "Simple magic",
+      "item": [
+        {
+          "_postman_id": "b1ce3e84-6417-e38c-22b7-97412a81eb6c",
+          "name": "Get snowflakes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var schema = {",
+                  "    \"token\": {",
+                  "        \"type\":\"string\",",
+                  "    },",
+                  "   ",
+                  "};",
+                  "",
+                  "//HEADER VALIDATION",
+                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
+                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
+                  "",
+                  "     postman.setNextRequest(null)",
+                  "}",
+                  "else{",
+                  "    postman.setNextRequest(null)",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/snowflakes",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Get Magic"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "6ea63968-d3d2-d044-9d2b-807c86a1db1d",
       "name": "Customer",
       "description": "These endpoints cover the customer specific calls. ",
@@ -2310,63 +2367,6 @@
               "raw": ""
             },
             "description": "Sets product version to selected Value"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
-      "name": "Snowflakes",
-      "description": "Simple magic",
-      "item": [
-        {
-          "_postman_id": "b1ce3e84-6417-e38c-22b7-97412a81eb6c",
-          "name": "Get snowflakes",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var schema = {",
-                  "    \"token\": {",
-                  "        \"type\":\"string\",",
-                  "    },",
-                  "   ",
-                  "};",
-                  "",
-                  "//HEADER VALIDATION",
-                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
-                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
-                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
-                  "",
-                  "     postman.setNextRequest(null)",
-                  "}",
-                  "else{",
-                  "    postman.setNextRequest(null)",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/snowflakes",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Get Magic"
           },
           "response": []
         }
