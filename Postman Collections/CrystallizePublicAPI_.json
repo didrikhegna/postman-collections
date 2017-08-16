@@ -8,63 +8,6 @@
   },
   "item": [
     {
-      "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
-      "name": "Insight",
-      "description": "Statistics and insight endpoints are gathered here.",
-      "item": [
-        {
-          "_postman_id": "b1ce3e84-6417-e38c-22b7-97412a81eb6c",
-          "name": "Get snowflakes",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var schema = {",
-                  "    \"token\": {",
-                  "        \"type\":\"string\",",
-                  "    },",
-                  "   ",
-                  "};",
-                  "",
-                  "//HEADER VALIDATION",
-                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
-                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
-                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
-                  "",
-                  "     postman.setNextRequest(null)",
-                  "}",
-                  "else{",
-                  "    postman.setNextRequest(null)",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/snowflakes",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Get Magic"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
       "_postman_id": "8ee11114-617a-c602-7ad3-e2c81f3a19f4",
       "name": "Product",
       "description": "Endpoints managing Product and Product Information",
@@ -651,6 +594,63 @@
               "raw": "{\n\"items\": [\n     {\n        \"discount_rate\": 0,\n        \"name\": \"test_name_1\",\n        \"quantity\": 1,\n        \"reference\": \"test_SKU-Variation\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 0\n    },\n    {\n        \"discount_rate\": 0,\n        \"name\": \"test_name_2\",\n        \"quantity\": 1,\n        \"reference\": \"test_SKU-Variation\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 0\n    }\n]\n \n}"
             },
             "description": "validates cart items,\npart of crystallize-checkout"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
+      "name": "Insight",
+      "description": "Statistics and insight endpoints are gathered here.",
+      "item": [
+        {
+          "_postman_id": "b1ce3e84-6417-e38c-22b7-97412a81eb6c",
+          "name": "Get snowflakes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var schema = {",
+                  "    \"token\": {",
+                  "        \"type\":\"string\",",
+                  "    },",
+                  "   ",
+                  "};",
+                  "",
+                  "//HEADER VALIDATION",
+                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
+                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
+                  "",
+                  "     postman.setNextRequest(null)",
+                  "}",
+                  "else{",
+                  "    postman.setNextRequest(null)",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/snowflakes",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Get Magic"
           },
           "response": []
         }
