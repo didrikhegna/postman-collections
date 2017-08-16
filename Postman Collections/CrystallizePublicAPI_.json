@@ -600,385 +600,6 @@
       ]
     },
     {
-      "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
-      "name": "Insight",
-      "description": "Statistics and insight endpoints are gathered here.",
-      "item": [
-        {
-          "_postman_id": "b1ce3e84-6417-e38c-22b7-97412a81eb6c",
-          "name": "Get snowflakes",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var schema = {",
-                  "    \"token\": {",
-                  "        \"type\":\"string\",",
-                  "    },",
-                  "   ",
-                  "};",
-                  "",
-                  "//HEADER VALIDATION",
-                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
-                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
-                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
-                  "",
-                  "     postman.setNextRequest(null)",
-                  "}",
-                  "else{",
-                  "    postman.setNextRequest(null)",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/snowflakes",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Get Magic"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "6ea63968-d3d2-d044-9d2b-807c86a1db1d",
-      "name": "Customer",
-      "description": "These endpoints cover the customer specific calls. ",
-      "item": [
-        {
-          "_postman_id": "175fcb97-6ee2-6c0c-29ab-d6b68707663d",
-          "name": "Fetch Customer Info",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/information",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "customers",
-                ":customer_id",
-                "information"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "key": "customer_id",
-                  "value": "20"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Fetches home page info about user, subscriptions, orders"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "810afe47-f510-3942-7d5b-4cfb7763f44f",
-          "name": "Order Address",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/address/:address_id",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "customers",
-                "address",
-                ":address_id"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "address_id",
-                  "value": "732"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Returns information of specified address"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "7572d405-31f0-a5f0-60d1-0d2e7737848a",
-          "name": "Customer list",
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/customers/",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Fetches a list with all the customers\n"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "d749bf44-fefa-f6ef-739f-cd15f08e346e",
-          "name": "Customer list CSV",
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/customers/csv",
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Fetches a list with all the customers\nas a CSV file\n"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "88276b32-0724-e754-ee10-b35f5c020861",
-          "name": "Fetch user's subscriptions",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/subscriptions",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "customers",
-                ":customer_id",
-                "subscriptions"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "customer_id",
-                  "value": "17"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": "Fetches the subscriptions for the current user."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "25a7fc37-c926-191d-4468-eaaaffd3b421",
-          "name": "Create new subscription",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/subscriptions",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "customers",
-                ":customer_id",
-                "subscriptions"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "",
-                  "key": "customer_id",
-                  "value": "1"
-                }
-              ]
-            },
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier",
-                "description": ""
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"customer_id\":0,\n\t\"product_id\": 0,\n\t\"subscription_id\":0,\n\t\"klarna_recurring_token\":\"test_KLARNA_token\"\n}"
-            },
-            "description": "Creates a new subscription for the current user."
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "a181066d-d297-26f4-d8de-c8745f96d2f6",
-      "name": "Inventory",
-      "description": "Endpoints Focusing the Inventory",
-      "item": [
-        {
-          "_postman_id": "fee823bd-8f13-ea34-42ca-c27d8beebdd6",
-          "name": "Product reserve",
-          "request": {
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/orders/reserve/",
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "test",
-                "description": ""
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{ \n  \"items\":[\n    {\"count\":1,\n    \"sku\":\"test_Product_SKU-test_Product_Variation\"}\n    ],\n  \"klarna_id\":\"test_Klarna_Code\"\n}"
-            },
-            "description": "Reserves a SKU."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "d2d6293e-10c0-0191-3365-bfa352be2ebc",
-          "name": "Get stock count",
-          "request": {
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:sku/stock_count",
-              "protocol": "{{protocol}}",
-              "auth": {},
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "products",
-                ":sku",
-                "stock_count"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "value": "Navy_Blue-Small-Regular",
-                  "id": "sku"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "test",
-                "description": ""
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}",
-                "description": ""
-              }
-            ],
-            "body": {},
-            "description": ""
-          },
-          "response": []
-        }
-      ]
-    },
-    {
       "_postman_id": "42e57909-fae2-34b9-1fd3-bc0e8db72d2f",
       "name": "Order",
       "description": "Endpoints managing Orders",
@@ -1447,6 +1068,385 @@
               }
             },
             "description": "Removes order completely if stage is 1"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "0e0df4b8-ea58-115f-120d-395291fdfa90",
+      "name": "Insight",
+      "description": "Statistics and insight endpoints are gathered here.",
+      "item": [
+        {
+          "_postman_id": "b1ce3e84-6417-e38c-22b7-97412a81eb6c",
+          "name": "Get snowflakes",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var schema = {",
+                  "    \"token\": {",
+                  "        \"type\":\"string\",",
+                  "    },",
+                  "   ",
+                  "};",
+                  "",
+                  "//HEADER VALIDATION",
+                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
+                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
+                  "",
+                  "     postman.setNextRequest(null)",
+                  "}",
+                  "else{",
+                  "    postman.setNextRequest(null)",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/snowflakes",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Get Magic"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "6ea63968-d3d2-d044-9d2b-807c86a1db1d",
+      "name": "Customer",
+      "description": "These endpoints cover the customer specific calls. ",
+      "item": [
+        {
+          "_postman_id": "175fcb97-6ee2-6c0c-29ab-d6b68707663d",
+          "name": "Fetch Customer Info",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/information",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "customers",
+                ":customer_id",
+                "information"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "customer_id",
+                  "value": "20"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Fetches home page info about user, subscriptions, orders"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "810afe47-f510-3942-7d5b-4cfb7763f44f",
+          "name": "Order Address",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/address/:address_id",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "customers",
+                "address",
+                ":address_id"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "address_id",
+                  "value": "732"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Returns information of specified address"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "7572d405-31f0-a5f0-60d1-0d2e7737848a",
+          "name": "Customer list",
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/customers/",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Fetches a list with all the customers\n"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "d749bf44-fefa-f6ef-739f-cd15f08e346e",
+          "name": "Customer list CSV",
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/customers/csv",
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Fetches a list with all the customers\nas a CSV file\n"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "88276b32-0724-e754-ee10-b35f5c020861",
+          "name": "Fetch user's subscriptions",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/subscriptions",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "customers",
+                ":customer_id",
+                "subscriptions"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "customer_id",
+                  "value": "17"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": "Fetches the subscriptions for the current user."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "25a7fc37-c926-191d-4468-eaaaffd3b421",
+          "name": "Create new subscription",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/subscriptions",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "customers",
+                ":customer_id",
+                "subscriptions"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "",
+                  "key": "customer_id",
+                  "value": "1"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "Your_Tenant_Identifier",
+                "description": ""
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"customer_id\":0,\n\t\"product_id\": 0,\n\t\"subscription_id\":0,\n\t\"klarna_recurring_token\":\"test_KLARNA_token\"\n}"
+            },
+            "description": "Creates a new subscription for the current user."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "a181066d-d297-26f4-d8de-c8745f96d2f6",
+      "name": "Inventory",
+      "description": "Endpoints Focusing the Inventory",
+      "item": [
+        {
+          "_postman_id": "fee823bd-8f13-ea34-42ca-c27d8beebdd6",
+          "name": "Product reserve",
+          "request": {
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/orders/reserve/",
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test",
+                "description": ""
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{ \n  \"items\":[\n    {\"count\":1,\n    \"sku\":\"test_Product_SKU-test_Product_Variation\"}\n    ],\n  \"klarna_id\":\"test_Klarna_Code\"\n}"
+            },
+            "description": "Reserves a SKU."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "d2d6293e-10c0-0191-3365-bfa352be2ebc",
+          "name": "Get stock count",
+          "request": {
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:sku/stock_count",
+              "protocol": "{{protocol}}",
+              "auth": {},
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":sku",
+                "stock_count"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "value": "Navy_Blue-Small-Regular",
+                  "id": "sku"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test",
+                "description": ""
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}",
+                "description": ""
+              }
+            ],
+            "body": {},
+            "description": ""
           },
           "response": []
         }
