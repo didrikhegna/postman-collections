@@ -118,51 +118,6 @@
           "response": []
         },
         {
-          "_postman_id": "df015a61-f93f-2732-c494-0f57b5559dfb",
-          "name": "Assign Product to Category",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id/categories/:category",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "products",
-                ":id",
-                "categories",
-                ":category"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "8"
-                },
-                {
-                  "key": "category",
-                  "value": "1"
-                }
-              ]
-            },
-            "description": "Inserts relation between Product and Category\n"
-          },
-          "response": []
-        },
-        {
           "_postman_id": "1fefc1a8-91bc-a3c0-0fb6-b58ed8a69bba",
           "name": "Categories",
           "request": {
