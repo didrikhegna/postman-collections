@@ -78,46 +78,6 @@
           "response": []
         },
         {
-          "_postman_id": "6101faef-57de-0f35-75c1-ee52b72643ab",
-          "name": "Product Categories",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "Your_Tenant_Identifier"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id/categories",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "products",
-                ":id",
-                "categories"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "4"
-                }
-              ]
-            },
-            "description": "List of product's categories"
-          },
-          "response": []
-        },
-        {
           "_postman_id": "1fefc1a8-91bc-a3c0-0fb6-b58ed8a69bba",
           "name": "Categories",
           "request": {
