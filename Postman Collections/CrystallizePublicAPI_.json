@@ -1,8 +1,7 @@
 {
-  "variables": [],
   "info": {
-    "name": "Crystallize Public API ",
     "_postman_id": "9a33b71a-f65a-8849-eed3-0b8148f8bd72",
+    "name": "Crystallize Public API ",
     "description": "The public API of Crystallize\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
@@ -1423,12 +1422,17 @@
                   "id": "sku"
                 }
               ]
-            },
-            "description": ""
+            }
           },
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "f0ea0368-73e5-4355-99e2-652128e0c2af",
+      "name": "Tenant",
+      "description": "",
+      "item": []
     }
   ]
 }
