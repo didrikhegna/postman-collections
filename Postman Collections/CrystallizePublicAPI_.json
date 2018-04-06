@@ -1427,34 +1427,6 @@
           "response": []
         }
       ]
-    },
-    {
-      "_postman_id": "f0ea0368-73e5-4355-99e2-652128e0c2af",
-      "name": "Tenant",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "24b37059-470f-4307-b2f2-b0b4d209fae4",
-          "name": "Get tenant configuration",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              }
-            ],
-            "body": {},
-            "url": "{{serverUrl}}/v2/tenant/configuration",
-            "description": "Reads from the crystallize_tenantconfiguration table in the database"
-          },
-          "response": []
-        }
-      ]
     }
   ]
 }
