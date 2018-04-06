@@ -1438,9 +1438,18 @@
           "name": "Get tenant configuration",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
             "body": {},
-            "url": "{{serverUrl}}/",
+            "url": "{{serverUrl}}/v2/tenant/configuration",
             "description": "Reads from the crystallize_tenantconfiguration table in the database"
           },
           "response": []
