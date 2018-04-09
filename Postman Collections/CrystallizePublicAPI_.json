@@ -1453,7 +1453,7 @@
               }
             ],
             "body": {},
-            "url": "{{serverUrl}}/v2/tenant/configuration"
+            "url": "{{serverUrl}}/v2/tenants/configuration"
           },
           "response": []
         }
