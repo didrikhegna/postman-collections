@@ -1438,9 +1438,22 @@
           "name": "Get configuration",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "{{tenantToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
             "body": {},
-            "url": ""
+            "url": "{{serverUrl}}/v2/tenant/configuration"
           },
           "response": []
         }
