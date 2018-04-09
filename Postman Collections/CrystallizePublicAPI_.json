@@ -1432,7 +1432,19 @@
       "_postman_id": "8f9cbd08-84b0-4118-8fd1-b6f85b230543",
       "name": "Tenant",
       "description": "",
-      "item": []
+      "item": [
+        {
+          "_postman_id": "efd3f9d0-eee1-4376-a56d-fef74663ca9b",
+          "name": "Get configuration",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {},
+            "url": ""
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }
