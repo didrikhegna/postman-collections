@@ -1427,12 +1427,6 @@
           "response": []
         }
       ]
-    },
-    {
-      "_postman_id": "8f9cbd08-84b0-4118-8fd1-b6f85b230543",
-      "name": "Tenant",
-      "description": "",
-      "item": []
     }
   ]
 }
