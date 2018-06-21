@@ -747,8 +747,8 @@
     },
     {
       "_postman_id": "48264181-8fc9-c59e-dd1d-38eedea429b5",
-      "name": "Order copy",
-      "description": "",
+      "name": "Orders",
+      "description": "Using the order Endpoint you can list or create orders from/in our system",
       "item": [
         {
           "_postman_id": "f947ad47-f295-f068-c45f-782562134574",
