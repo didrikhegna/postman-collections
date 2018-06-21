@@ -85,6 +85,745 @@
       ]
     },
     {
+      "_postman_id": "91175683-0a31-2b75-c18f-53d099f5b1ed",
+      "name": "Product copy",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "307cf657-3ad0-90fe-d23d-0f7b8184ca42",
+          "name": "Create product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\t\n\t\n   \"sku\": \"SPS-243-369\",\n   \"name\": \"witch Doctor\",\n   \"is_virtual\": 1,\n   \"is_available\":true,\n   \"is_subscription\": 1,\n   \"image_list\": [ \"Src\", \"Src\"],\n   \"parent_node_id\": 8,\n\t\"node_id\": 7,\n   \"contenttype_id\": 7,\n   \"is_subscription_only\":1,\n   \"fields\": [\n        {\t\n        \t\"id\":18,\n            \"name\": \"e\",\n            \"data\": \"sdfsdf\",\n            \"field_type\": \"string\",\n            \"contenttype_field_id\": 14\n        }\n    ],\n    \"subscription_plans\": [\n      {\n        \"index\":1,\n        \"id\":6,\n        \"name\": \"firstPlan\",\n        \"initial_period\": 2,\n        \"initial_period_unit\": \"weeks\",\n        \"duration\":3,\n        \"duration_unit\":\"months\",\n        \"renewal_term\": \"{ }\", \n        \"cancellation_term\": \"{ }\"\n       },\n       {\n        \"index\":3,\n        \"id\":7,\n        \"name\": \"secondPlan\",\n        \"initial_period\": 1,\n        \"initial_period_unit\": \"months\",\n        \"duration\":1,\n        \"duration_unit\":\"years\",\n        \"renewal_term\": \"{ }\", \n        \"cancellation_term\": \"{ }\"\n       }\n       \n    ],\n    \n    \"options\":[\n    \n      \n    ],\n    \n   \"variation_dimensions\": [\n       {\n       \"name\": \"Color\",\n       \"values\": [ \"Blue\", \"Orange\"]\n       }\n   ],  \n   \"variations\": [\n       {\n       \"variation_sku\": \"Blue\",\n      \"price_ex_vat\": 0,\n      \"stock_count\": 3620,\n      \"image\": \"src\",\n      \"attributes\": {\n          \"Color\": \"Blue\"\n        },\n        \"variation_plans\":[\n          {  \n            \"index\":1,\n             \"id\":41,\n            \"initial_price\":35333535,\n            \"renewal_price\": 852\n          },\n          {  \n            \"index\":3,\n            \"id\":42,\n            \"initial_price\":342,\n            \"renewal_price\": 7455\n          }\n          ]\n       \n       },\n       {\n       \"variation_sku\": \"Orange\",\n      \"price_ex_vat\": 0,\n      \"stock_count\": 4563,\n      \"image\": \"src\",\n      \"attributes\": {\n          \"Color\": \"Orange\"\n        },\n        \"variation_plans\":[\n          {\n          \n            \"index\":1,\n        \"id\":43,\n            \"initial_price\":123,\n            \"renewal_price\": 500\n          },\n          {  \n            \"index\":3,\n            \"id\":44,\n            \"initial_price\":222,\n            \"renewal_price\": 7455\n          }\n          ]\n       }\n   ]\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products",
+            "description": "Creates a new product in the repository.\nIf the product already exists by the SKU it is gracefully updated."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ffbd10b4-408e-1882-6e21-73b7cfe28df0",
+          "name": "Update Variation Stock Count",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"stock_count\":23203}"
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:sku/stock_count",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":sku",
+                "stock_count"
+              ],
+              "variable": [
+                {
+                  "key": "sku",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Updates the variations stock count based on id ok SKU"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e2d31efb-abd3-de4f-7332-7d611baec52f",
+          "name": "Product fetch",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a",
+                "disabled": true
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "SPS-243-369"
+                }
+              ]
+            },
+            "description": "Fetches a product from the repository. The parameter can either be the internal ID or the product SKU."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ef85fa94-9824-9beb-4c4b-1df8e9b9e1d0",
+          "name": "Product list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a",
+                "disabled": true
+              }
+            ],
+            "body": {},
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3ccedfcd-1c09-34eb-79fc-6ddcf8b059fa",
+          "name": "VAT types",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"myVat\",\n\t\"percentage\": 54.64\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/vat"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bf678b6f-2cda-0f3a-c52f-11bd706c71bf",
+          "name": "Create VAT",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"myVat\",\n\t\"percentage\": 54.64\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/vat"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "f67f88d0-e651-2e32-f4c3-669ceaa8ff1e",
+          "name": "Product Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "bunad_magasinet"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id/categories",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":id",
+                "categories"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            },
+            "description": "Fetches a product from the repository. The parameter can either be the internal ID or the product SKU."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bdf53406-28b6-40c5-55d5-c166efe2de40",
+          "name": "Assign Product to Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id/categories/:category",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":id",
+                "categories",
+                ":category"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "8"
+                },
+                {
+                  "key": "category",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Inserts relation between Product and Categorty\n"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "37b54239-5199-4e47-cd28-f25af43f6fc7",
+          "name": "Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"third\",\n  \"parent_category_id\": 1\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/categories",
+            "description": "Enters new Category"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3b9959ac-5d2a-4197-eaa3-75889babca13",
+          "name": "Categories",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\":2,\n  \"name\": \"random\",\n  \"parent_category_id\":1\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/categories",
+            "description": "Enters new Category"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "b92bcab4-e9b1-e6a2-6236-040ee6ae4a87",
+          "name": "Categories Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\":2,\n  \"name\": \"random\",\n  \"parent_category_id\":1\n}"
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/categories/:id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                "categories",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Deletes a Category based on the provided ID"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "163c1341-f21b-542c-8225-3380dae39fc8",
+          "name": "Categories all Items",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/categories/:id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                "categories",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "Receives both all products and subcategories of categories"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "6538a61e-3dd8-ca46-4a41-15a738ff46dc",
+          "name": "Categories Products",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/categories/:id/products",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                "categories",
+                ":id",
+                "products"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Receives all products for this category\n"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "9425f595-1fec-4200-4a4f-80d775943096",
+          "name": "Categories Subcategories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/categories/:id/subcategories",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                "categories",
+                ":id",
+                "subcategories"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Receives both all products and subcategories of categories"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "de5c4db9-e5a1-a1dc-8096-be64178be13d",
+          "name": "Product available",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/available/:sku",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                "available",
+                ":sku"
+              ],
+              "variable": [
+                {
+                  "key": "sku",
+                  "value": "XT-05-3"
+                }
+              ]
+            },
+            "description": "Returns HTTP 200 if the SKU is available."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "8da6056a-c7aa-6e2b-a882-424164da5476",
+          "name": "Add Variations",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n   \"sku\": \"BM-1-003\",\n   \"variation_dimensions\": [\n       {\n       \"name\": \"Form\",\n       \"values\": [ \"Print&Digital\"]\n       }\n   ],  \n   \"variations\": [\n       {\n       \"variation_sku\": \"Print&Digital\",\n      \"price_ex_vat\": 999,\n      \"stock_count\": 200,\n      \"image\": \"src\",\n      \"attributes\": {\n          \"Form\": \"Print&Digital\"\n        }\n       \n       }\n   ]\n}"
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:sku/variations",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":sku",
+                "variations"
+              ],
+              "variable": [
+                {
+                  "key": "sku",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Adds variations to product"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "db92cba2-a968-b0bf-6f9c-d1664cd045ea",
+          "name": "Delete product",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:sku",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":sku"
+              ],
+              "variable": [
+                {
+                  "key": "sku",
+                  "value": "SPS-243-370"
+                }
+              ]
+            },
+            "description": "Deletes a product based on sku"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "888df9ed-73e2-977f-e626-3f2a51469488",
+          "name": "Fetch coupons",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"value\": 100,\n\t\"code\": \"s3f5s3f4d4fds4f\",\n\t\"is_onetime_only\": 1\n\t\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/coupons",
+            "description": "Creates a new Coupon with a Unique code that is comming from input or is auto generated "
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "be9246c8-bd94-83fc-e6c7-6fc588771cf2",
+          "name": "Get coupons",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"value\": 100,\n\t\"code\": \"s3f5s3f4d4fds4f\",\n\t\"is_onetime_only\": 1\n\t\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/coupons",
+            "description": "fetcehs all coupons"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "2d1418af-f38f-20e1-3164-246c1e4a4360",
+          "name": "Validate Cart Items",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var item = {\"subscription_id\": \"15\"}",
+                  "item = JSON.stringify(item)",
+                  "postman.setEnvironmentVariable('itemData', item)"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "sub_engine"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\"items\": [\n     {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-83-Orange\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 954\n    },\n    {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-454-44-Orange\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 800\n    }\n],\n\"coupon\":{\n  \"code\":\"tood\"\n}\n \n}"
+            },
+            "url": "http://localhost:8000/v2/products/validate",
+            "description": "validates cart items,\npart of crystallize-checkout"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "25a04d87-3dd5-3ac5-3adf-683b849c1f79",
       "name": "Fetch Customer Info copy",
       "request": {
