@@ -824,6 +824,12 @@
       ]
     },
     {
+      "_postman_id": "b62f35cb-b8f0-f94f-1e2d-ce14dec628d6",
+      "name": "Customer",
+      "description": "",
+      "item": []
+    },
+    {
       "_postman_id": "25a04d87-3dd5-3ac5-3adf-683b849c1f79",
       "name": "Fetch Customer Info copy",
       "request": {
