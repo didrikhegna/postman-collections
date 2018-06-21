@@ -115,52 +115,6 @@
           "response": []
         },
         {
-          "_postman_id": "1ed8616c-1b1c-f3bb-59da-bbc5e52c5a52",
-          "name": "Order Stage Update",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "bunad_products"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n   \"stage\": \"5\"\n}"
-            },
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:id",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "orders",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "442"
-                }
-              ]
-            },
-            "description": "Stage update"
-          },
-          "response": []
-        },
-        {
           "_postman_id": "53a3cb42-4ffa-3045-4f62-9eea2fd9c3b2",
           "name": "Order Item Pack",
           "request": {
