@@ -83,51 +83,6 @@
           "response": []
         },
         {
-          "_postman_id": "274b6058-847d-f9b2-906f-9d407492b084",
-          "name": "Order item pack status",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "test"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id/items/:orderitem_id/packed",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "orders",
-                ":order_id",
-                "items",
-                ":orderitem_id",
-                "packed"
-              ],
-              "variable": [
-                {
-                  "key": "order_id",
-                  "value": "1"
-                },
-                {
-                  "key": "orderitem_id",
-                  "value": "2"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "_postman_id": "e9fc5dff-8b32-29cd-e779-87d187e6f99b",
           "name": "Order Delete",
           "request": {
