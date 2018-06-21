@@ -867,29 +867,29 @@
             "description": "Fetches home page info about user, subscriptions, orders"
           },
           "response": []
-        },
-        {
-          "_postman_id": "e3ad7fc9-ddfc-e239-ecd2-8ac55fc37e21",
-          "name": "Customer list copy",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {},
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/customers/",
-            "description": "Fetches a list with all the customers\n"
-          },
-          "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "e3ad7fc9-ddfc-e239-ecd2-8ac55fc37e21",
+      "name": "Customer list copy",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{last_valid_token}}"
+          },
+          {
+            "key": "X-Crystallize-Tenant",
+            "value": "{{tenant}}"
+          }
+        ],
+        "body": {},
+        "url": "{{protocol}}://{{url}}:{{port}}/v2/customers/",
+        "description": "Fetches a list with all the customers\n"
+      },
+      "response": []
     }
   ]
 }
