@@ -83,54 +83,6 @@
           "response": []
         },
         {
-          "_postman_id": "53a3cb42-4ffa-3045-4f62-9eea2fd9c3b2",
-          "name": "Order Item Pack",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "test"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id/items/:orderitem_id/packed",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "orders",
-                ":order_id",
-                "items",
-                ":orderitem_id",
-                "packed"
-              ],
-              "variable": [
-                {
-                  "key": "order_id",
-                  "value": "1"
-                },
-                {
-                  "key": "orderitem_id",
-                  "value": "64"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
           "_postman_id": "ea4d936e-14c4-638b-6958-e38a3cccc302",
           "name": "Order Item Unpack",
           "request": {
