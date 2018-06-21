@@ -5,5 +5,428 @@
     "description": "The public API of Crystallize\n",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
-  "item": []
+  "item": [
+    {
+      "_postman_id": "48264181-8fc9-c59e-dd1d-38eedea429b5",
+      "name": "Order copy",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "f947ad47-f295-f068-c45f-782562134574",
+          "name": "Create Order",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var item = {\"subscription_id\": 15}",
+                  "item = JSON.stringify(item)",
+                  "postman.setEnvironmentVariable('itemData', item)"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "sub_engine"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \n  \"payment_method\":\"StRipe\",\n   \"recurring\":true,\n   \"recurring_token\":\"1d6ccdd0-a56b-4bc1-8227-f5fbe2f2db53\",\n   \"klarna_id\":\"7Z313SQBUG8132VHK2OR6QBX8E9\",\n   \"stripe_token\": \"s\u00f8ldfldsfdskf\",\n   \"stripe_token_type\": \"card\",\n   \"stripe_customer_id\": \"dsohf\u00f8lsdhfldsflkdshfl\u00f8sh\",\n   \"stripe_subscription_id\":\"\u00d8LH\u00d8LH\u00d8FHL\u00d8HDF\",\n   \"first_name\":\"Stavros\",\n   \"last_name\":\"Sotiropoulos\",\n   \"billing_address\":{  \n      \"given_name\":\"Stavros\",\n      \"family_name\":\"Sotiropoulos\",\n      \"street_address\":\"GUNNAR KNUDSENS VEG 84\",\n      \"postal_code\":\"3712\",\n      \"city\":\"SKIEN\",\n      \"country\":\"no\",\n      \"email\":\"stasotiro@gmail.com\",\n      \"phone\":\"92 34 35 23\"\n   },\n   \"shipping_address\":{  \n      \"given_name\":\"Stavros\",\n      \"family_name\":\"Sotiropoulos\",\n      \"street_address\":\"GUNNAR KNUDSENS VEG 84\",\n      \"postal_code\":\"3712\",\n      \"city\":\"SKIEN\",\n      \"country\":\"no\",\n      \"email\":\"stasotiro@gmail.com\",\n      \"phone\":\"92 34 35 23\"\n   },\n   \"cart\":{  \n      \"items\":[  \n         {  \n            \"discount_rate\":0,\n            \"name\":\"Premium Orange\",\n            \"quantity\":1,\n            \"reference\":\"SPS-24-222-Orange\",\n            \"tax_rate\":0,\n            \"total_price_excluding_tax\":123,\n            \"total_price_including_tax\":222,\n            \"total_tax_amount\":0,\n            \"type\":\"physical\",\n            \"unit_price\":22200,\n            \"merchant_item_data\":{\n              \"variationplan_id\":286\n            }\n         },{  \n            \"discount_rate\":0,\n            \"name\":\"Premium Orange\",\n            \"quantity\":1,\n            \"reference\":\"BP-1-85-6-Orange\",\n            \"tax_rate\":0,\n            \"total_price_excluding_tax\":954,\n            \"total_price_including_tax\":954,\n            \"total_tax_amount\":0,\n            \"type\":\"physical\",\n            \"unit_price\":95400\n         }\n      ],\n      \"total_price_excluding_tax\":123,\n      \"total_tax_amount\":0,\n      \"total_price_including_tax\":95400\n   }\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/orders"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bc281b72-a6c9-cc29-3d84-a4d2598101be",
+          "name": "Order list",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/orders"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "cfd24607-d18a-ee6e-e606-f6240adcc179",
+          "name": "Order list  CSV",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "bunad_products"
+              }
+            ],
+            "body": {},
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/orders/csv",
+            "description": "Fetches all orders as CSV"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "da113a50-769b-c15e-2253-fa0fb96c05aa",
+          "name": "Order Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:klarna_id/status",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "orders",
+                ":klarna_id",
+                "status"
+              ],
+              "variable": [
+                {
+                  "key": "klarna_id",
+                  "value": "HAHAHAHAHAHA"
+                }
+              ]
+            },
+            "description": "Returns the status of the order with the corresponding KlarnaID"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "d9c0cd91-d893-7dc0-3109-b3b81ff99601",
+          "name": "Order lines",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "bunad_products"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id/lines",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "orders",
+                ":order_id",
+                "lines"
+              ],
+              "variable": [
+                {
+                  "key": "order_id",
+                  "value": "420"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "1ed8616c-1b1c-f3bb-59da-bbc5e52c5a52",
+          "name": "Order Stage Update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "bunad_products"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n   \"stage\": \"5\"\n}"
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "orders",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "442"
+                }
+              ]
+            },
+            "description": "Stage update"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "53a3cb42-4ffa-3045-4f62-9eea2fd9c3b2",
+          "name": "Order Item Pack",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id/items/:orderitem_id/packed",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "orders",
+                ":order_id",
+                "items",
+                ":orderitem_id",
+                "packed"
+              ],
+              "variable": [
+                {
+                  "key": "order_id",
+                  "value": "1"
+                },
+                {
+                  "key": "orderitem_id",
+                  "value": "64"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ea4d936e-14c4-638b-6958-e38a3cccc302",
+          "name": "Order Item Unpack",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": ""
+              }
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id/items/:orderitem_id/packed",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "orders",
+                ":order_id",
+                "items",
+                ":orderitem_id",
+                "packed"
+              ],
+              "variable": [
+                {
+                  "key": "order_id",
+                  "value": "1"
+                },
+                {
+                  "key": "orderitem_id",
+                  "value": "64"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "274b6058-847d-f9b2-906f-9d407492b084",
+          "name": "Order item pack status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id/items/:orderitem_id/packed",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "orders",
+                ":order_id",
+                "items",
+                ":orderitem_id",
+                "packed"
+              ],
+              "variable": [
+                {
+                  "key": "order_id",
+                  "value": "1"
+                },
+                {
+                  "key": "orderitem_id",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e9fc5dff-8b32-29cd-e779-87d187e6f99b",
+          "name": "Order Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "bunad_products"
+              }
+            ],
+            "body": {
+              "mode": "file",
+              "file": {
+                "src": ""
+              }
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "orders",
+                ":order_id"
+              ],
+              "variable": [
+                {
+                  "key": "order_id",
+                  "value": "408"
+                }
+              ]
+            },
+            "description": "Removes order completely if stage is 1"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }
