@@ -83,6 +83,46 @@
           "response": []
         }
       ]
+    },
+    {
+      "_postman_id": "25a04d87-3dd5-3ac5-3adf-683b849c1f79",
+      "name": "Fetch Customer Info copy",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-Crystallize-Tenant",
+            "value": "{{tenant}}"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{last_valid_token}}"
+          }
+        ],
+        "body": {},
+        "url": {
+          "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/information",
+          "protocol": "{{protocol}}",
+          "host": [
+            "{{url}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "v2",
+            "customers",
+            ":customer_id",
+            "information"
+          ],
+          "variable": [
+            {
+              "key": "customer_id",
+              "value": "629"
+            }
+          ]
+        },
+        "description": "Fetches home page info about user, subscriptions, orders"
+      },
+      "response": []
     }
   ]
 }
