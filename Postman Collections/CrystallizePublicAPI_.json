@@ -81,50 +81,6 @@
             "url": "{{protocol}}://{{url}}:{{port}}/v2/orders"
           },
           "response": []
-        },
-        {
-          "_postman_id": "e9fc5dff-8b32-29cd-e779-87d187e6f99b",
-          "name": "Order Delete",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "bunad_products"
-              }
-            ],
-            "body": {
-              "mode": "file",
-              "file": {
-                "src": ""
-              }
-            },
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/orders/:order_id",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "orders",
-                ":order_id"
-              ],
-              "variable": [
-                {
-                  "key": "order_id",
-                  "value": "408"
-                }
-              ]
-            },
-            "description": "Removes order completely if stage is 1"
-          },
-          "response": []
         }
       ]
     }
