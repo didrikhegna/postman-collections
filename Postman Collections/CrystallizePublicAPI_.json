@@ -83,38 +83,6 @@
           "response": []
         },
         {
-          "_postman_id": "cfd24607-d18a-ee6e-e606-f6240adcc179",
-          "name": "Order list  CSV",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "bunad_products"
-              }
-            ],
-            "body": {},
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/orders/csv",
-            "description": "Fetches all orders as CSV"
-          },
-          "response": []
-        },
-        {
           "_postman_id": "53a3cb42-4ffa-3045-4f62-9eea2fd9c3b2",
           "name": "Order Item Pack",
           "request": {
