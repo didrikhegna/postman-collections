@@ -109,6 +109,154 @@
           "response": []
         },
         {
+          "_postman_id": "bdf53406-28b6-40c5-55d5-c166efe2de40",
+          "name": "Assign Product to Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id/categories/:category",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":id",
+                "categories",
+                ":category"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "8"
+                },
+                {
+                  "key": "category",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Inserts relation between Product and Categorty\n"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "37b54239-5199-4e47-cd28-f25af43f6fc7",
+          "name": "Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"third\",\n  \"parent_category_id\": 1\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/categories",
+            "description": "Enters new Category"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3b9959ac-5d2a-4197-eaa3-75889babca13",
+          "name": "Categories",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\":2,\n  \"name\": \"random\",\n  \"parent_category_id\":1\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/categories",
+            "description": "Enters new Category"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "b92bcab4-e9b1-e6a2-6236-040ee6ae4a87",
+          "name": "Categories Delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\":2,\n  \"name\": \"random\",\n  \"parent_category_id\":1\n}"
+            },
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/categories/:id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                "categories",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Deletes a Category based on the provided ID"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "163c1341-f21b-542c-8225-3380dae39fc8",
           "name": "Categories all Items",
           "request": {
