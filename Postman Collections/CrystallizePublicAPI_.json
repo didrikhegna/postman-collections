@@ -283,7 +283,7 @@
               }
             ],
             "body": {},
-            "url": "/v2/customers/",
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/customers/",
             "description": "Fetches a list of all customers\n"
           },
           "response": []
