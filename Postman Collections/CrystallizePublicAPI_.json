@@ -249,12 +249,7 @@
             ],
             "body": {},
             "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/customers/:customer_id/information",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
+              "raw": "/v2/customers/:customer_id/information",
               "path": [
                 "v2",
                 "customers",
