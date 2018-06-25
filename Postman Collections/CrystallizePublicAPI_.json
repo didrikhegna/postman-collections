@@ -830,7 +830,7 @@
       "item": [
         {
           "_postman_id": "25a04d87-3dd5-3ac5-3adf-683b849c1f79",
-          "name": "Fetch Customer Info copy",
+          "name": "Fetch Customer Inf",
           "request": {
             "method": "GET",
             "header": [
@@ -864,7 +864,7 @@
                 }
               ]
             },
-            "description": "Fetches home page info about user, subscriptions, orders"
+            "description": "Fetches info about a customer, his subscriptions and orders"
           },
           "response": []
         },
