@@ -7,6 +7,305 @@
   },
   "item": [
     {
+      "_postman_id": "c083761b-8024-3572-0641-f7578ddebdea",
+      "name": "Information Objects",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "f2c47070-87e3-b5f3-5674-89c8e108e9a6",
+          "name": "Information Object List",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bc265baf-35ac-ab4d-83fe-f444233ae99e",
+          "name": "Information Object ",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/:id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "informationobjects",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "0"
+                }
+              ]
+            },
+            "description": "-gives info about specific object and lists\nchildren\n-if 0 id is passed we will list top lvl objects"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3ec1cb36-0ffb-1bcc-9569-24d3c7c06c48",
+          "name": "Image store",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": "Alfa-Giulia-6.jpg",
+                  "value": null,
+                  "description": "Can be null or a file (upload new)"
+                }
+              ]
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/images",
+            "description": "Stores a new Image with no relation to objects and stores it in Amazon S3. "
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bcc37fb9-a182-40f0-766a-7170761a0836",
+          "name": "Upload Video",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var schema = {",
+                  "    \"token\": {",
+                  "        \"type\":\"string\",",
+                  "    },",
+                  "   ",
+                  "};",
+                  "",
+                  "//HEADER VALIDATION",
+                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
+                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
+                  "",
+                  "     postman.setNextRequest(null)",
+                  "}",
+                  "else{",
+                  "    postman.setNextRequest(null)",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "video",
+                  "value": null,
+                  "type": "file"
+                },
+                {
+                  "key": "preview",
+                  "value": null,
+                  "type": "file"
+                },
+                {
+                  "key": "thumbnails",
+                  "value": null,
+                  "type": "file"
+                },
+                {
+                  "key": "title",
+                  "value": "My Best Videoooo",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/videos",
+            "description": "Upload a new video, returns upload info"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "232ad0b3-b1bd-b36c-53e8-07021f513964",
+          "name": "Upload Single Video",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var schema = {",
+                  "    \"token\": {",
+                  "        \"type\":\"string\",",
+                  "    },",
+                  "   ",
+                  "};",
+                  "",
+                  "//HEADER VALIDATION",
+                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
+                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
+                  "",
+                  "     postman.setNextRequest(null)",
+                  "}",
+                  "else{",
+                  "    postman.setNextRequest(null)",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "video",
+                  "value": null,
+                  "type": "file"
+                }
+              ]
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/uploadvideo",
+            "description": "Upload a new video, returns upload info"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "3a4a90b9-38ed-280a-90ff-ff36af39bca3",
+          "name": "Video completed",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var schema = {",
+                  "    \"token\": {",
+                  "        \"type\":\"string\",",
+                  "    },",
+                  "   ",
+                  "};",
+                  "",
+                  "//HEADER VALIDATION",
+                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
+                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
+                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
+                  "",
+                  "     postman.setNextRequest(null)",
+                  "}",
+                  "else{",
+                  "    postman.setNextRequest(null)",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "video",
+                  "value": null,
+                  "type": "file"
+                }
+              ]
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/uploadvideo",
+            "description": "Uploaded video is completed"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "91175683-0a31-2b75-c18f-53d099f5b1ed",
       "name": "Product copy",
       "description": "",
@@ -285,374 +584,6 @@
             "body": {},
             "url": "/v2/customers/",
             "description": "Fetches a list of all customers\n"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "c083761b-8024-3572-0641-f7578ddebdea",
-      "name": "Information Objects copy",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "f2c47070-87e3-b5f3-5674-89c8e108e9a6",
-          "name": "Information Object List",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {},
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "bc265baf-35ac-ab4d-83fe-f444233ae99e",
-          "name": "Information Object ",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/:id",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "informationobjects",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "0"
-                }
-              ]
-            },
-            "description": "-gives info about specific object and lists\nchildren\n-if 0 id is passed we will list top lvl objects"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "a5138006-6283-72d6-0732-f57b90e8c2ea",
-          "name": "Create Info Object",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"id\":6,\n    \"name\": \"yo eeww\",\n\t\"node_id\": 7,\n    \"parent_node_id\": 9,\n    \"contenttype_id\": 7,\n    \"is_available\": 1,\n    \"fields\": [\n            {\t\n\t\t\t\t\"id\":18,\n                \"name\": \"e\",\n                \"data\": \"22222\",\n                \"field_type\": \"string\",\n                \"contenttype_field_id\": 14\n            }\n        ]\n}"
-            },
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "98f1fb4b-6e8a-8f45-9bc6-b60963900177",
-          "name": "Delete Info Object",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/:id/",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
-              "path": [
-                "v2",
-                "informationobjects",
-                ":id",
-                ""
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "4"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "3ec1cb36-0ffb-1bcc-9569-24d3c7c06c48",
-          "name": "Image store",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "type": "file",
-                  "src": "Alfa-Giulia-6.jpg",
-                  "value": null,
-                  "description": "Can be null or a file (upload new)"
-                }
-              ]
-            },
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/images",
-            "description": "Stores a new Image with no relation to objects and stores it in Amazon S3. "
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "bcc37fb9-a182-40f0-766a-7170761a0836",
-          "name": "Upload Video",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var schema = {",
-                  "    \"token\": {",
-                  "        \"type\":\"string\",",
-                  "    },",
-                  "   ",
-                  "};",
-                  "",
-                  "//HEADER VALIDATION",
-                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
-                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
-                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
-                  "",
-                  "     postman.setNextRequest(null)",
-                  "}",
-                  "else{",
-                  "    postman.setNextRequest(null)",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "video",
-                  "value": null,
-                  "type": "file"
-                },
-                {
-                  "key": "preview",
-                  "value": null,
-                  "type": "file"
-                },
-                {
-                  "key": "thumbnails",
-                  "value": null,
-                  "type": "file"
-                },
-                {
-                  "key": "title",
-                  "value": "My Best Videoooo",
-                  "type": "text"
-                }
-              ]
-            },
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/videos",
-            "description": "Upload a new video, returns upload info"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "232ad0b3-b1bd-b36c-53e8-07021f513964",
-          "name": "Upload Single Video",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var schema = {",
-                  "    \"token\": {",
-                  "        \"type\":\"string\",",
-                  "    },",
-                  "   ",
-                  "};",
-                  "",
-                  "//HEADER VALIDATION",
-                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
-                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
-                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
-                  "",
-                  "     postman.setNextRequest(null)",
-                  "}",
-                  "else{",
-                  "    postman.setNextRequest(null)",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "video",
-                  "value": null,
-                  "type": "file"
-                }
-              ]
-            },
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/uploadvideo",
-            "description": "Upload a new video, returns upload info"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "3a4a90b9-38ed-280a-90ff-ff36af39bca3",
-          "name": "Video completed",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var schema = {",
-                  "    \"token\": {",
-                  "        \"type\":\"string\",",
-                  "    },",
-                  "   ",
-                  "};",
-                  "",
-                  "//HEADER VALIDATION",
-                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
-                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
-                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
-                  "",
-                  "     postman.setNextRequest(null)",
-                  "}",
-                  "else{",
-                  "    postman.setNextRequest(null)",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "video",
-                  "value": null,
-                  "type": "file"
-                }
-              ]
-            },
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/uploadvideo",
-            "description": "Uploaded video is completed"
           },
           "response": []
         }
