@@ -109,6 +109,174 @@
           "response": []
         },
         {
+          "_postman_id": "3ccedfcd-1c09-34eb-79fc-6ddcf8b059fa",
+          "name": "VAT types",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "disabled": true
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"myVat\",\n\t\"percentage\": 54.64\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/vat"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bf678b6f-2cda-0f3a-c52f-11bd706c71bf",
+          "name": "Create VAT",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\": \"myVat\",\n\t\"percentage\": 54.64\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/vat"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "f67f88d0-e651-2e32-f4c3-669ceaa8ff1e",
+          "name": "Product Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "bunad_magasinet"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id/categories",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":id",
+                "categories"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            },
+            "description": "Fetches a product from the repository. The parameter can either be the internal ID or the product SKU."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bdf53406-28b6-40c5-55d5-c166efe2de40",
+          "name": "Assign Product to Category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "test"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id/categories/:category",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
+              "path": [
+                "v2",
+                "products",
+                ":id",
+                "categories",
+                ":category"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "8"
+                },
+                {
+                  "key": "category",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Inserts relation between Product and Categorty\n"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "37b54239-5199-4e47-cd28-f25af43f6fc7",
+          "name": "Categories",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"third\",\n  \"parent_category_id\": 1\n}"
+            },
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/categories",
+            "description": "Enters new Category"
+          },
+          "response": []
+        },
+        {
           "_postman_id": "3b9959ac-5d2a-4197-eaa3-75889babca13",
           "name": "Categories",
           "request": {
