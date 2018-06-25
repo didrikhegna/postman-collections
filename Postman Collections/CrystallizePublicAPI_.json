@@ -104,7 +104,8 @@
               }
             ],
             "body": {},
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/"
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/products/",
+            "description": "Retrieve a list of all available products"
           },
           "response": []
         },
