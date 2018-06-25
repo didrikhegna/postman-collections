@@ -142,9 +142,9 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\"items\": [\n     {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-83-Orange\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 954\n    },\n    {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-454-44-Orange\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 800\n    }\n],\n\"coupon\":{\n  \"code\":\"tood\"\n}\n \n}"
+              "raw": "{\n\"items\": [\n     {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-83-crystal\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 954\n    },\n    {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-454-44-molecule\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 800\n    }\n],\n\"coupon\":{\n  \"code\":\"CRYSTALLIZE\"\n}\n \n}"
             },
-            "url": "http://localhost:8000/v2/products/validate",
+            "url": "/v2/products/validate",
             "description": "validates cart items by reference-price. On success sends back complete cart of items with tax percentages. On failure responds with items that have failed to pass validation. Also provides ability to validate a coupon, returning it as a cart item"
           },
           "response": []
