@@ -27,7 +27,8 @@
               }
             ],
             "body": {},
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects"
+            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects",
+            "description": "Provides a list of all objects in the system"
           },
           "response": []
         },
@@ -66,69 +67,7 @@
                 }
               ]
             },
-            "description": "-gives info about specific object and lists\nchildren\n-if 0 id is passed we will list top lvl objects"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "3a4a90b9-38ed-280a-90ff-ff36af39bca3",
-          "name": "Video completed",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var schema = {",
-                  "    \"token\": {",
-                  "        \"type\":\"string\",",
-                  "    },",
-                  "   ",
-                  "};",
-                  "",
-                  "//HEADER VALIDATION",
-                  "if(tests[\"Status code is 200\"] = (responseCode.code === 200)){",
-                  "    var contentTypeHeaderExists = responseHeaders.hasOwnProperty(\"Content-Type\");",
-                  "    tests[\"Has content type\"] = contentTypeHeaderExists;",
-                  "",
-                  "     postman.setNextRequest(null)",
-                  "}",
-                  "else{",
-                  "    postman.setNextRequest(null)",
-                  "}"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "Content-Type",
-                "value": "multipart/form-data",
-                "disabled": true
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "video",
-                  "value": null,
-                  "type": "file"
-                }
-              ]
-            },
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/uploadvideo",
-            "description": "Uploaded video is completed"
+            "description": "Retrieve information about an object by id"
           },
           "response": []
         }
