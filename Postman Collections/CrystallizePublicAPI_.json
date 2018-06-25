@@ -61,7 +61,12 @@
             ],
             "body": {},
             "url": {
-              "raw": "/v2/products/:id",
+              "raw": "{{protocol}}://{{url}}:{{port}}/v2/products/:id",
+              "protocol": "{{protocol}}",
+              "host": [
+                "{{url}}"
+              ],
+              "port": "{{port}}",
               "path": [
                 "v2",
                 "products",
