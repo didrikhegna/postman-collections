@@ -7,8 +7,292 @@
   },
   "item": [
     {
+      "_postman_id": "91175683-0a31-2b75-c18f-53d099f5b1ed",
+      "name": "Product copy",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "307cf657-3ad0-90fe-d23d-0f7b8184ca42",
+          "name": "Create product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\t\n\t\n   \"sku\": \"SPS-243-369\",\n   \"name\": \"witch Doctor\",\n   \"is_virtual\": 1,\n   \"is_available\":true,\n   \"is_subscription\": 1,\n   \"image_list\": [ \"Src\", \"Src\"],\n   \"parent_node_id\": 8,\n\t\"node_id\": 7,\n   \"contenttype_id\": 7,\n   \"is_subscription_only\":1,\n   \"fields\": [\n        {\t\n        \t\"id\":18,\n            \"name\": \"e\",\n            \"data\": \"sdfsdf\",\n            \"field_type\": \"string\",\n            \"contenttype_field_id\": 14\n        }\n    ],\n    \"subscription_plans\": [\n      {\n        \"index\":1,\n        \"id\":6,\n        \"name\": \"firstPlan\",\n        \"initial_period\": 2,\n        \"initial_period_unit\": \"weeks\",\n        \"duration\":3,\n        \"duration_unit\":\"months\",\n        \"renewal_term\": \"{ }\", \n        \"cancellation_term\": \"{ }\"\n       },\n       {\n        \"index\":3,\n        \"id\":7,\n        \"name\": \"secondPlan\",\n        \"initial_period\": 1,\n        \"initial_period_unit\": \"months\",\n        \"duration\":1,\n        \"duration_unit\":\"years\",\n        \"renewal_term\": \"{ }\", \n        \"cancellation_term\": \"{ }\"\n       }\n       \n    ],\n    \n    \"options\":[\n    \n      \n    ],\n    \n   \"variation_dimensions\": [\n       {\n       \"name\": \"Color\",\n       \"values\": [ \"Blue\", \"Orange\"]\n       }\n   ],  \n   \"variations\": [\n       {\n       \"variation_sku\": \"Blue\",\n      \"price_ex_vat\": 0,\n      \"stock_count\": 3620,\n      \"image\": \"src\",\n      \"attributes\": {\n          \"Color\": \"Blue\"\n        },\n        \"variation_plans\":[\n          {  \n            \"index\":1,\n             \"id\":41,\n            \"initial_price\":35333535,\n            \"renewal_price\": 852\n          },\n          {  \n            \"index\":3,\n            \"id\":42,\n            \"initial_price\":342,\n            \"renewal_price\": 7455\n          }\n          ]\n       \n       },\n       {\n       \"variation_sku\": \"Orange\",\n      \"price_ex_vat\": 0,\n      \"stock_count\": 4563,\n      \"image\": \"src\",\n      \"attributes\": {\n          \"Color\": \"Orange\"\n        },\n        \"variation_plans\":[\n          {\n          \n            \"index\":1,\n        \"id\":43,\n            \"initial_price\":123,\n            \"renewal_price\": 500\n          },\n          {  \n            \"index\":3,\n            \"id\":44,\n            \"initial_price\":222,\n            \"renewal_price\": 7455\n          }\n          ]\n       }\n   ]\n}"
+            },
+            "url": "/v2/products",
+            "description": "Creates a new product in the repository.\nIf the product already exists by the SKU it is gracefully updated."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e2d31efb-abd3-de4f-7332-7d611baec52f",
+          "name": "Product fetch",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a",
+                "disabled": true
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "/v2/products/:id",
+              "path": [
+                "v2",
+                "products",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "SPS-243-369"
+                }
+              ]
+            },
+            "description": "Fetches a product from the repository. The parameter can either be the internal ID or the product SKU."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ef85fa94-9824-9beb-4c4b-1df8e9b9e1d0",
+          "name": "Product list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a",
+                "disabled": true
+              }
+            ],
+            "body": {},
+            "url": "/v2/products/",
+            "description": "Retrieve a list of all available products"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "2d1418af-f38f-20e1-3164-246c1e4a4360",
+          "name": "Validate Cart Items",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var item = {\"subscription_id\": \"15\"}",
+                  "item = JSON.stringify(item)",
+                  "postman.setEnvironmentVariable('itemData', item)"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "sub_engine"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\"items\": [\n     {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-83-crystal\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 954\n    },\n    {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-454-44-molecule\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 800\n    }\n],\n\"coupon\":{\n  \"code\":\"CRYSTALLIZE\"\n}\n \n}"
+            },
+            "url": "/v2/products/validate",
+            "description": "validates cart items by reference-price. On success sends back complete cart of items with tax percentages. On failure responds with items that have failed to pass validation. Also provides ability to validate a coupon, returning it as a cart item"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "48264181-8fc9-c59e-dd1d-38eedea429b5",
+      "name": "Orders",
+      "description": "Using the order Endpoint you can list or create orders from/in our system",
+      "item": [
+        {
+          "_postman_id": "f947ad47-f295-f068-c45f-782562134574",
+          "name": "Create Order",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "var item = {\"subscription_id\": 15}",
+                  "item = JSON.stringify(item)",
+                  "postman.setEnvironmentVariable('itemData', item)"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "sub_engine"
+              },
+              {
+                "key": "X-Crystallize-Token",
+                "value": "c25f9909667ee206ceb0098ec203803a"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \n  \n   \"recurring\":true,\n   \"recurring_token\":null,\n   \"klarna_id\":null,\n   \"payment_method\":\"stripe\",\n   \"stripe_token\": \"s\u00f8ldfldsfdskf\",\n   \"stripe_token_type\": \"card\",\n   \"stripe_customer_id\": \"dsohf\u00f8lsdhfldsflkdshfl\u00f8sh\",\n   \"stripe_subscription_id\":\"\u00d8LH\u00d8LH\u00d8FHL\u00d8HDF\",\n   \"first_name\":\"Toby\",\n   \"last_name\":\"the Molecule\",\n   \"billing_address\":{  \n      \"given_name\":\"Toby\",\n      \"family_name\":\"the Molecule\",\n      \"street_address\":\"Shiny Avenue 23\",\n      \"postal_code\":\"3712\",\n      \"city\":\"Moleculia\",\n      \"country\":\"Crystallize Planet\",\n      \"email\":\"hello@crystallize.digital\",\n      \"phone\":\"11 11 11 11\"\n   },\n   \"shipping_address\":{  \n      \"given_name\":\"Toby\",\n      \"family_name\":\"the Molecule\",\n      \"street_address\":\"Shiny Avenue 23\",\n      \"postal_code\":\"3712\",\n      \"city\":\"Moleculia\",\n      \"country\":\"Crystallize Planet\",\n      \"email\":\"hello@crystallize.digital\",\n      \"phone\":\"11 11 11 11\"\n   },\n   \"cart\":{  \n      \"items\":[  \n         {  \n            \"discount_rate\":0,\n            \"name\":\"Premium Crystal\",\n            \"quantity\":30,\n            \"reference\":\"CR-1-113-small\",\n            \"tax_rate\":0,\n            \"total_price_excluding_tax\":100,\n            \"total_price_including_tax\":100,\n            \"total_tax_amount\":0,\n            \"type\":\"physical\",\n            \"unit_price\":100\n         }\n      ],\n      \"total_price_excluding_tax\":100,\n      \"total_tax_amount\":0,\n      \"total_price_including_tax\":100\n   }\n}"
+            },
+            "url": "/v2/orders",
+            "description": "Create an order with either Stripe or Klarna data"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bc281b72-a6c9-cc29-3d84-a4d2598101be",
+          "name": "Order list",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": "/v2/orders",
+            "description": "Provides a list of all orders in the system"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "b62f35cb-b8f0-f94f-1e2d-ce14dec628d6",
+      "name": "Customer",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "25a04d87-3dd5-3ac5-3adf-683b849c1f79",
+          "name": "Fetch Customer Inf",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "/v2/customers/:customer_id/information",
+              "path": [
+                "v2",
+                "customers",
+                ":customer_id",
+                "information"
+              ],
+              "variable": [
+                {
+                  "key": "customer_id",
+                  "value": "629"
+                }
+              ]
+            },
+            "description": "Fetches info about a customer, his subscriptions and orders"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e3ad7fc9-ddfc-e239-ecd2-8ac55fc37e21",
+          "name": "Customer list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": "/v2/customers/",
+            "description": "Fetches a list of all customers\n"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "_postman_id": "c083761b-8024-3572-0641-f7578ddebdea",
-      "name": "Information Objects",
+      "name": "Information Objects copy",
       "description": "",
       "item": [
         {
@@ -369,290 +653,6 @@
             },
             "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/uploadvideo",
             "description": "Uploaded video is completed"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "91175683-0a31-2b75-c18f-53d099f5b1ed",
-      "name": "Product copy",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "307cf657-3ad0-90fe-d23d-0f7b8184ca42",
-          "name": "Create product",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\t\n\t\n   \"sku\": \"SPS-243-369\",\n   \"name\": \"witch Doctor\",\n   \"is_virtual\": 1,\n   \"is_available\":true,\n   \"is_subscription\": 1,\n   \"image_list\": [ \"Src\", \"Src\"],\n   \"parent_node_id\": 8,\n\t\"node_id\": 7,\n   \"contenttype_id\": 7,\n   \"is_subscription_only\":1,\n   \"fields\": [\n        {\t\n        \t\"id\":18,\n            \"name\": \"e\",\n            \"data\": \"sdfsdf\",\n            \"field_type\": \"string\",\n            \"contenttype_field_id\": 14\n        }\n    ],\n    \"subscription_plans\": [\n      {\n        \"index\":1,\n        \"id\":6,\n        \"name\": \"firstPlan\",\n        \"initial_period\": 2,\n        \"initial_period_unit\": \"weeks\",\n        \"duration\":3,\n        \"duration_unit\":\"months\",\n        \"renewal_term\": \"{ }\", \n        \"cancellation_term\": \"{ }\"\n       },\n       {\n        \"index\":3,\n        \"id\":7,\n        \"name\": \"secondPlan\",\n        \"initial_period\": 1,\n        \"initial_period_unit\": \"months\",\n        \"duration\":1,\n        \"duration_unit\":\"years\",\n        \"renewal_term\": \"{ }\", \n        \"cancellation_term\": \"{ }\"\n       }\n       \n    ],\n    \n    \"options\":[\n    \n      \n    ],\n    \n   \"variation_dimensions\": [\n       {\n       \"name\": \"Color\",\n       \"values\": [ \"Blue\", \"Orange\"]\n       }\n   ],  \n   \"variations\": [\n       {\n       \"variation_sku\": \"Blue\",\n      \"price_ex_vat\": 0,\n      \"stock_count\": 3620,\n      \"image\": \"src\",\n      \"attributes\": {\n          \"Color\": \"Blue\"\n        },\n        \"variation_plans\":[\n          {  \n            \"index\":1,\n             \"id\":41,\n            \"initial_price\":35333535,\n            \"renewal_price\": 852\n          },\n          {  \n            \"index\":3,\n            \"id\":42,\n            \"initial_price\":342,\n            \"renewal_price\": 7455\n          }\n          ]\n       \n       },\n       {\n       \"variation_sku\": \"Orange\",\n      \"price_ex_vat\": 0,\n      \"stock_count\": 4563,\n      \"image\": \"src\",\n      \"attributes\": {\n          \"Color\": \"Orange\"\n        },\n        \"variation_plans\":[\n          {\n          \n            \"index\":1,\n        \"id\":43,\n            \"initial_price\":123,\n            \"renewal_price\": 500\n          },\n          {  \n            \"index\":3,\n            \"id\":44,\n            \"initial_price\":222,\n            \"renewal_price\": 7455\n          }\n          ]\n       }\n   ]\n}"
-            },
-            "url": "/v2/products",
-            "description": "Creates a new product in the repository.\nIf the product already exists by the SKU it is gracefully updated."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "e2d31efb-abd3-de4f-7332-7d611baec52f",
-          "name": "Product fetch",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "X-Crystallize-Token",
-                "value": "c25f9909667ee206ceb0098ec203803a",
-                "disabled": true
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "/v2/products/:id",
-              "path": [
-                "v2",
-                "products",
-                ":id"
-              ],
-              "variable": [
-                {
-                  "key": "id",
-                  "value": "SPS-243-369"
-                }
-              ]
-            },
-            "description": "Fetches a product from the repository. The parameter can either be the internal ID or the product SKU."
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "ef85fa94-9824-9beb-4c4b-1df8e9b9e1d0",
-          "name": "Product list",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "X-Crystallize-Token",
-                "value": "c25f9909667ee206ceb0098ec203803a",
-                "disabled": true
-              }
-            ],
-            "body": {},
-            "url": "/v2/products/",
-            "description": "Retrieve a list of all available products"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "2d1418af-f38f-20e1-3164-246c1e4a4360",
-          "name": "Validate Cart Items",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var item = {\"subscription_id\": \"15\"}",
-                  "item = JSON.stringify(item)",
-                  "postman.setEnvironmentVariable('itemData', item)"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "sub_engine"
-              },
-              {
-                "key": "X-Crystallize-Token",
-                "value": "c25f9909667ee206ceb0098ec203803a"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\"items\": [\n     {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-83-crystal\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 954\n    },\n    {\n        \"discount_rate\": 0,\n        \"name\": \"Blue\",\n        \"quantity\": 25,\n        \"reference\": \"BP-1-454-44-molecule\",\n        \"tax_rate\": 0,\n        \"type\": \"shipping_fee\",\n        \"unit_price\": 800\n    }\n],\n\"coupon\":{\n  \"code\":\"CRYSTALLIZE\"\n}\n \n}"
-            },
-            "url": "/v2/products/validate",
-            "description": "validates cart items by reference-price. On success sends back complete cart of items with tax percentages. On failure responds with items that have failed to pass validation. Also provides ability to validate a coupon, returning it as a cart item"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "48264181-8fc9-c59e-dd1d-38eedea429b5",
-      "name": "Orders",
-      "description": "Using the order Endpoint you can list or create orders from/in our system",
-      "item": [
-        {
-          "_postman_id": "f947ad47-f295-f068-c45f-782562134574",
-          "name": "Create Order",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "var item = {\"subscription_id\": 15}",
-                  "item = JSON.stringify(item)",
-                  "postman.setEnvironmentVariable('itemData', item)"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "sub_engine"
-              },
-              {
-                "key": "X-Crystallize-Token",
-                "value": "c25f9909667ee206ceb0098ec203803a"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{  \n  \n   \"recurring\":true,\n   \"recurring_token\":null,\n   \"klarna_id\":null,\n   \"payment_method\":\"stripe\",\n   \"stripe_token\": \"s\u00f8ldfldsfdskf\",\n   \"stripe_token_type\": \"card\",\n   \"stripe_customer_id\": \"dsohf\u00f8lsdhfldsflkdshfl\u00f8sh\",\n   \"stripe_subscription_id\":\"\u00d8LH\u00d8LH\u00d8FHL\u00d8HDF\",\n   \"first_name\":\"Toby\",\n   \"last_name\":\"the Molecule\",\n   \"billing_address\":{  \n      \"given_name\":\"Toby\",\n      \"family_name\":\"the Molecule\",\n      \"street_address\":\"Shiny Avenue 23\",\n      \"postal_code\":\"3712\",\n      \"city\":\"Moleculia\",\n      \"country\":\"Crystallize Planet\",\n      \"email\":\"hello@crystallize.digital\",\n      \"phone\":\"11 11 11 11\"\n   },\n   \"shipping_address\":{  \n      \"given_name\":\"Toby\",\n      \"family_name\":\"the Molecule\",\n      \"street_address\":\"Shiny Avenue 23\",\n      \"postal_code\":\"3712\",\n      \"city\":\"Moleculia\",\n      \"country\":\"Crystallize Planet\",\n      \"email\":\"hello@crystallize.digital\",\n      \"phone\":\"11 11 11 11\"\n   },\n   \"cart\":{  \n      \"items\":[  \n         {  \n            \"discount_rate\":0,\n            \"name\":\"Premium Crystal\",\n            \"quantity\":30,\n            \"reference\":\"CR-1-113-small\",\n            \"tax_rate\":0,\n            \"total_price_excluding_tax\":100,\n            \"total_price_including_tax\":100,\n            \"total_tax_amount\":0,\n            \"type\":\"physical\",\n            \"unit_price\":100\n         }\n      ],\n      \"total_price_excluding_tax\":100,\n      \"total_tax_amount\":0,\n      \"total_price_including_tax\":100\n   }\n}"
-            },
-            "url": "/v2/orders",
-            "description": "Create an order with either Stripe or Klarna data"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "bc281b72-a6c9-cc29-3d84-a4d2598101be",
-          "name": "Order list",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "type": "text/javascript",
-                "exec": [
-                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
-                ]
-              }
-            }
-          ],
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {},
-            "url": "/v2/orders",
-            "description": "Provides a list of all orders in the system"
-          },
-          "response": []
-        }
-      ]
-    },
-    {
-      "_postman_id": "b62f35cb-b8f0-f94f-1e2d-ce14dec628d6",
-      "name": "Customer",
-      "description": "",
-      "item": [
-        {
-          "_postman_id": "25a04d87-3dd5-3ac5-3adf-683b849c1f79",
-          "name": "Fetch Customer Inf",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              },
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              }
-            ],
-            "body": {},
-            "url": {
-              "raw": "/v2/customers/:customer_id/information",
-              "path": [
-                "v2",
-                "customers",
-                ":customer_id",
-                "information"
-              ],
-              "variable": [
-                {
-                  "key": "customer_id",
-                  "value": "629"
-                }
-              ]
-            },
-            "description": "Fetches info about a customer, his subscriptions and orders"
-          },
-          "response": []
-        },
-        {
-          "_postman_id": "e3ad7fc9-ddfc-e239-ecd2-8ac55fc37e21",
-          "name": "Customer list",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {},
-            "url": "/v2/customers/",
-            "description": "Fetches a list of all customers\n"
           },
           "response": []
         }
