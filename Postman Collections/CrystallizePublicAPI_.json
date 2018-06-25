@@ -71,38 +71,6 @@
           "response": []
         },
         {
-          "_postman_id": "3ec1cb36-0ffb-1bcc-9569-24d3c7c06c48",
-          "name": "Image store",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Authorization",
-                "value": "Bearer {{last_valid_token}}"
-              },
-              {
-                "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "image",
-                  "type": "file",
-                  "src": "Alfa-Giulia-6.jpg",
-                  "value": null,
-                  "description": "Can be null or a file (upload new)"
-                }
-              ]
-            },
-            "url": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/images",
-            "description": "Stores a new Image with no relation to objects and stores it in Amazon S3. "
-          },
-          "response": []
-        },
-        {
           "_postman_id": "bcc37fb9-a182-40f0-766a-7170761a0836",
           "name": "Upload Video",
           "event": [
