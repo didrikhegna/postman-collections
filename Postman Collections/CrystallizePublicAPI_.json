@@ -671,6 +671,8 @@
                 "type": "text/javascript",
                 "exec": [
                   "{",
+                  "    \"id\": 884,",
+                  "    \"crystallize_customer_id\": 78,",
                   "    \"recurring\": false,",
                   "    \"recurring_token\": null,",
                   "    \"klarna_id\": null,",
@@ -724,9 +726,7 @@
                   "        \"total_price_excluding_tax\": 100,",
                   "        \"total_tax_amount\": 0,",
                   "        \"total_price_including_tax\": 100",
-                  "    },",
-                  "    \"crystallize_customer_id\": 78,",
-                  "    \"id\": 884",
+                  "    }",
                   "}"
                 ]
               }
