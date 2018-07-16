@@ -520,9 +520,17 @@
               "script": {
                 "type": "text/javascript",
                 "exec": [
-                  "var item = {\"subscription_id\": \"15\"}",
-                  "item = JSON.stringify(item)",
-                  "postman.setEnvironmentVariable('itemData', item)"
+                  "[",
+                  "    {",
+                  "        \"name\": \"Blue Crystal\",",
+                  "        \"quantity\": 1,",
+                  "        \"reference\": \"SPS-243-369-Blue\",",
+                  "        \"tax_rate\": 0,",
+                  "        \"type\": \"shipping_fee\",",
+                  "        \"unit_price\": 100,",
+                  "        \"vat\": 25",
+                  "    }",
+                  "]"
                 ]
               }
             }
