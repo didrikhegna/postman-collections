@@ -716,7 +716,20 @@
               }
             ],
             "body": {},
-            "url": "/v2/orders",
+            "url": {
+              "raw": "/v2/orders/:id",
+              "path": [
+                "v2",
+                "orders",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            },
             "description": "Provides a list of all orders in the system"
           },
           "response": []
