@@ -606,6 +606,34 @@
           "name": "Order list",
           "event": [
             {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "[{",
+                  "        \"id\": 884,",
+                  "        \"klarna_id\": null,",
+                  "        \"creation_date\": \"2018-07-16 11:46:41\",",
+                  "        \"last_modified_date\": \"2018-07-16 11:46:41\",",
+                  "        \"stage\": 1,",
+                  "        \"status\": \"active\",",
+                  "        \"first_name\": \"Toby\",",
+                  "        \"last_name\": \"the Molecule\",",
+                  "        \"billing_address_id\": 849,",
+                  "        \"shipping_address_id\": 849,",
+                  "        \"total_price_excluding_tax\": 1,",
+                  "        \"total_tax_amount\": 0,",
+                  "        \"total_price_including_tax\": 1,",
+                  "        \"customer_id\": 78,",
+                  "        \"coupon_id\": null,",
+                  "        \"payment_method\": \"stripe\",",
+                  "        \"payment_gateway_id\": \"222\"",
+                  "    }",
+                  "    ]"
+                ]
+              }
+            },
+            {
               "listen": "test",
               "script": {
                 "type": "text/javascript",
