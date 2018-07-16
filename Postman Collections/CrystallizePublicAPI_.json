@@ -44,12 +44,17 @@
               },
               {
                 "key": "X-Crystallize-Tenant",
-                "value": "{{tenant}}"
+                "value": ""
               }
             ],
             "body": {},
             "url": {
-              "raw": "/v2/informationobjects/:id",
+              "raw": "http://localhost:8000/v2/informationobjects/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
               "path": [
                 "v2",
                 "informationobjects",
