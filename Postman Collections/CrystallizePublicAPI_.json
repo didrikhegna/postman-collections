@@ -49,12 +49,7 @@
             ],
             "body": {},
             "url": {
-              "raw": "{{protocol}}://{{url}}:{{port}}/v2/informationobjects/:id",
-              "protocol": "{{protocol}}",
-              "host": [
-                "{{url}}"
-              ],
-              "port": "{{port}}",
+              "raw": "/v2/informationobjects/:id",
               "path": [
                 "v2",
                 "informationobjects",
