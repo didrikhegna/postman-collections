@@ -14,6 +14,39 @@
         {
           "_postman_id": "f2c47070-87e3-b5f3-5674-89c8e108e9a6",
           "name": "Information Object List",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "[",
+                  "    {",
+                  "        \"id\": 201,",
+                  "        \"name\": \"My Test Product\",",
+                  "        \"parent_information_object_id\": 0,",
+                  "        \"contenttype_id\": 1,",
+                  "        \"created\": \"2018-07-16 11:17:48\",",
+                  "        \"modified\": \"2018-07-16 11:17:48\",",
+                  "        \"is_available\": 1,",
+                  "        \"product_id\": 152,",
+                  "        \"current_version\": 1,",
+                  "        \"is_published\": 0,",
+                  "        \"fields\": [",
+                  "            {",
+                  "                \"name\": \"my test field\",",
+                  "                \"field_type\": \"string\",",
+                  "                \"contenttype_field_id\": 1,",
+                  "                \"data\": \"We have our first product!\",",
+                  "                \"id\": 972",
+                  "            }",
+                  "        ]",
+                  "    }",
+                  "]"
+                ]
+              }
+            }
+          ],
           "request": {
             "method": "GET",
             "header": [
