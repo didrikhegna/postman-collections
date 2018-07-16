@@ -49,12 +49,7 @@
             ],
             "body": {},
             "url": {
-              "raw": "http://localhost:8000/v2/informationobjects/:id",
-              "protocol": "http",
-              "host": [
-                "localhost"
-              ],
-              "port": "8000",
+              "raw": "/v2/informationobjects/:id",
               "path": [
                 "v2",
                 "informationobjects",
