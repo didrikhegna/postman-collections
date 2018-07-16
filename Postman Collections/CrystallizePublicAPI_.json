@@ -660,6 +660,66 @@
             "description": "Provides a list of all orders in the system"
           },
           "response": []
+        },
+        {
+          "_postman_id": "2f455309-8161-0f64-d64b-48418880e413",
+          "name": "Order list copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "[{",
+                  "        \"id\": 884,",
+                  "        \"klarna_id\": null,",
+                  "        \"creation_date\": \"2018-07-16 11:46:41\",",
+                  "        \"last_modified_date\": \"2018-07-16 11:46:41\",",
+                  "        \"stage\": 1,",
+                  "        \"status\": \"active\",",
+                  "        \"first_name\": \"Toby\",",
+                  "        \"last_name\": \"the Molecule\",",
+                  "        \"billing_address_id\": 849,",
+                  "        \"shipping_address_id\": 849,",
+                  "        \"total_price_excluding_tax\": 1,",
+                  "        \"total_tax_amount\": 0,",
+                  "        \"total_price_including_tax\": 1,",
+                  "        \"customer_id\": 78,",
+                  "        \"coupon_id\": null,",
+                  "        \"payment_method\": \"stripe\",",
+                  "        \"payment_gateway_id\": \"222\"",
+                  "    }",
+                  "    ]"
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Status code is 200\"] = responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{last_valid_token}}"
+              },
+              {
+                "key": "X-Crystallize-Tenant",
+                "value": "{{tenant}}"
+              }
+            ],
+            "body": {},
+            "url": "/v2/orders",
+            "description": "Provides a list of all orders in the system"
+          },
+          "response": []
         }
       ]
     },
