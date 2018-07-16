@@ -663,7 +663,7 @@
         },
         {
           "_postman_id": "2f455309-8161-0f64-d64b-48418880e413",
-          "name": "Order list copy",
+          "name": "Order fetch",
           "event": [
             {
               "listen": "prerequest",
@@ -768,7 +768,7 @@
                 }
               ]
             },
-            "description": "Provides a list of all orders in the system"
+            "description": "Fetches an order by id."
           },
           "response": []
         }
