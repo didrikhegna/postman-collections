@@ -884,6 +884,30 @@
         {
           "_postman_id": "e3ad7fc9-ddfc-e239-ecd2-8ac55fc37e21",
           "name": "Customer list",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "[",
+                  "    {",
+                  "        \"id\": 78,",
+                  "        \"first_name\": \"Toby\",",
+                  "        \"last_name\": \"the Molecule\",",
+                  "        \"email\": \"hello@crystallize.digital\",",
+                  "        \"phone\": \"11 11 11 11\",",
+                  "        \"facebook_id\": null,",
+                  "        \"created_at\": \"2018-07-16 11:46:41\",",
+                  "        \"updated_at\": \"2018-07-16 11:46:41\",",
+                  "        \"gender\": null,",
+                  "        \"date_of_birth\": null",
+                  "    }",
+                  "]"
+                ]
+              }
+            }
+          ],
           "request": {
             "method": "GET",
             "header": [
